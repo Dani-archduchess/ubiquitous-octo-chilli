@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Quote Generator</title>
+    <meta name="description" content="A simple quote generator that displays random quotes on a beautiful background.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'JetBrains Mono', monospace; 
+            background-color: #f4f4f9;
+            /* Added the smooth fade transition here */
+            transition: background-color 0.8s ease;
+        }
+
+        #quote-container {
+            text-align: center;
+            max-width: 1000px; /* Your design choice */
+            padding: 40px;
+        }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 3.5rem;
+            color: #1a1a1a;
+            line-height: 1.2;
+            text-transform: uppercase;
+            /* Added min-height to keep the button from jumping */
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #refresh-btn {
+            margin-top: 20px;
+            padding: 12px 40px; /* Your design choice */
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: bold;
+            font-size: 1.0rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            background-color: #1a1a1a;
+            color: white;
+            border: none;
+            border-radius: 10px; /* Your design choice */
+            transition: 0.3s;
+        }
+
+        #refresh-btn:hover {
+            background-color: #555;
+            transform: scale(1.05); /* Just a tiny bit of pop! */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="quote-container">
+        <h1 id="quote-text"></h1>
+        <button onclick="showRandomQuote()" id="refresh-btn">NEW QUOTE</button>
+    </div>
+
+    <script>
+        const quotes = [
+            "Sometimes, the other side of the story no dey need.",
+            "Put powder under your tataas so underboob sweat doesn't kill you.",
+            "Be bathing okay? Sometimes the basaa feeling you have is because you've not bathed.",
+            "I wish everything bad in this world times 100 on my enemies.",
+            "Sometimes, be a hater. Edey need.",
+            "Buying Alansa is like Russian Roulette. You might get the best you'll ever eat, or one full of worms. No in between.",
+            "One foot in front of the other. Always.",
+            "Hug your people. No reason, just hug your people.",
+            "I'd like the possibility to design a hell for my opps . My creativity will shine like mad.",
+            "Some people need to die. No rehabilitation or unlearning, just straight death.",
+            "Don't ever buy a Range Rover. It will come for your life.",
+            "Skip Appa's lost days when watching Avatar, else you'll be sad for a week."
+        ];
+
+        // Designer-curated colors for the background logic
+        const colors = ["#FFD1DC", "#B19CD9", "#AEC6CF", "#77DD77", "#FDFD96", "#FFB347", " #CCD5AE", "#D4A373", "#F4944E", "#CFCFC4"];
+
+        function showRandomQuote() {
+            // Pick a random quote
+            const quoteIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote-text').innerText = quotes[quoteIndex];
+
+            // Pick a random color and apply it to the body
+            const colorIndex = Math.floor(Math.random() * colors.length);
+            document.body.style.backgroundColor = colors[colorIndex];
+        }
+
+        // Show the first quote immediately when the page loads
+        showRandomQuote();
+    </script>
+</body>
+</html>
